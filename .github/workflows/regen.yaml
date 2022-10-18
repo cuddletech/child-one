@@ -1,8 +1,9 @@
 name: Update Repository
 
 on:
+  workflow_call:
   repository_dispatch:
-  types: [kick]
+    types: [kick]
 
 jobs:
   generation:
@@ -13,3 +14,9 @@ jobs:
       - name: Generate
         run: |
           ./gen.sh
+      - name: Add HTML Update
+        run: |
+          git add index.html
+          git commit -m "Regenerated HTML"
+          git push
+      
