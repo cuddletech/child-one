@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - run: echo ${{ github.event.client_payload.version }}
+      - run: echo ${{ github.event.client_payload }}
       - name: Generate
         run: |
           ./gen.sh
@@ -27,6 +27,6 @@ jobs:
           git add index.html
           git config --global user.email "tools@mondoo.com"
           git config --global user.name "Mondoo Tools"
-          git commit -m "Regenerated HTML"
+          git commit -m "Regenerated HTML for version ${{ inputs.version }}"
           git push
       
