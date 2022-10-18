@@ -17,6 +17,8 @@ jobs:
       - name: Add HTML Update
         run: |
           git add index.html
-          git commit -m "Regenerated HTML" --author="Mondoo GitHub Actions <tools@mondoo.com>"
+          git config --global user.email "tools@mondoo.com"
+          git config --global user.name "Mondoo Tools"
+          git commit -m "Regenerated HTML"
           git push
       
