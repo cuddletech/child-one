@@ -20,6 +20,8 @@ jobs:
       - name: Generate
         run: |
           ./gen.sh
+        env:
+          VERSION: ${{ inputs.version }}
       - name: Add HTML Update
         run: |
           git add index.html
